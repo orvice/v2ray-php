@@ -1,0 +1,30 @@
+{
+  "name": "v2ray",
+  "description": "The v2ray Utils bundle",
+  "keywords": [
+    "v2ray",
+    "utils"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "orvice",
+      "email": "orvice@orx.me"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "classmap": [
+      "tests"
+    ],
+    "files": [
+    ],
+    "psr-4": {
+      "V2ray\\": "src"
+    }
+  }
+}
