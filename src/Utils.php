@@ -59,7 +59,10 @@ class Utils implements Contract
         if ($obfs == "websocket") {
             $obfs = "ws";
         }
-        return sprintf("bfv://%s:%s/vmess/1?rtype=all&dns=8.8.8.8&tnet=%s&tsec=%s&uid=%s&aid=%s&lev=%s&sec=auto&path=%s#%s", $server, $port,
-            $obfs, $tls, $uuid, $alterID,$level, $path, $remark);
+
+        $ws = urlencode(sprintf("path=%s", $path));
+
+        return sprintf("bfv://%s:%s/vmess/1?rtype=all&dns=8.8.8.8&tnet=%s&tsec=%s&uid=%s&aid=%s&lev=%s&sec=auto&ws=%s#%s", $server, $port,
+            $obfs, $tls, $uuid, $alterID, $level, $ws, $remark);
     }
 }
