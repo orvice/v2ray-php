@@ -41,13 +41,14 @@ class Utils implements Contract
      * @param $server
      * @param $port
      * @param $alterID
+     * @param $level
      * @param string $obfs
      * @param int $tls
      * @param string $path
      * @param string $remark
      * @return string
      */
-    public static function genBfvConnString($method, $uuid, $server, $port, $alterID, $obfs = "", $tls = 0, $path = "", $remark = "")
+    public static function genBfvConnString($method, $uuid, $server, $port, $alterID, $level, $obfs = "", $tls = 0, $path = "", $remark = "")
     {
         if ($tls) {
             $tls = 'tls';
@@ -58,7 +59,7 @@ class Utils implements Contract
         if ($obfs == "websocket") {
             $obfs = "ws";
         }
-        return sprintf("bfv://%s:%s/vmess/1?rtype=all&dns=8.8.8.8&tnet=%s&tsec=%s&uid=%s&adi=%s&sec=auto&path=%s#%s", $server, $port,
-            $obfs, $tls, $uuid, $alterID, $path, $remark);
+        return sprintf("bfv://%s:%s/vmess/1?rtype=all&dns=8.8.8.8&tnet=%s&tsec=%s&uid=%s&aid=%s&lev=%s&sec=auto&path=%s#%s", $server, $port,
+            $obfs, $tls, $uuid, $alterID,$level, $path, $remark);
     }
 }
