@@ -92,6 +92,9 @@ class Utils implements Contract
         $net = self::tcp;
         if ($obfs != "") {
             $net = $obfs;
+            if ($net == self::websockt) {
+                $net = "ws";
+            }
         }
         return [
             "v" => "2",
@@ -107,4 +110,5 @@ class Utils implements Contract
             "tls" => $tlsStr,
         ];
     }
+
 }
